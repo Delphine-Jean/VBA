@@ -1,0 +1,293 @@
+Private Sub CommandButton1_Click()
+
+Sheets("Trafic TC").Activate
+
+    Range("H1").Select
+
+    Selection.End(xlDown).Select
+
+    Selection.Offset(1, 0).Select
+
+        ActiveCell = UsersTC.Value
+
+        ActiveCell.Offset(0, -1).Value = DateValue.Value
+
+        ActiveCell.Offset(0, 1).Value = SessionsTC.Value
+
+        ActiveCell.Offset(0, 2).Value = PViewTC.Value
+
+  
+
+ Sheets("Trafic JT").Activate
+
+   Range("H1").Select
+
+        Selection.End(xlDown).Select
+
+        Selection.Offset(1, 0).Select
+
+        ActiveCell = UsersJT.Value
+
+        ActiveCell.Offset(0, -1).Value = DateValue.Value
+
+        ActiveCell.Offset(0, 1).Value = SessionsJT.Value
+
+        ActiveCell.Offset(0, 2).Value = PViewJT.Value
+
+ 
+
+Sheets("Tab Email").Activate
+
+   Range("H21").Select
+
+        ActiveCell = TraficTCCW.Value
+
+   Range("I21").Select
+
+        ActiveCell = TraficTCLW.Value
+
+   Range("L21").Select
+
+   ActiveCell = TraficTCCM.Value
+
+   Range("M21").Select
+
+   ActiveCell = TraficTCLYM.Value
+
+   Range("P21").Select
+
+   ActiveCell = TraficTCCYTD.Value
+
+   Range("Q21").Select
+
+   ActiveCell = TraficTCLYTD.Value
+
+  
+
+   Range("H22").Select
+
+   ActiveCell = TraficJTCW.Value
+
+   Range("I22").Select
+
+   ActiveCell = TraficJTLW.Value
+
+   Range("L22").Select
+
+   ActiveCell = TraficJTCM.Value
+
+   Range("M22").Select
+
+   ActiveCell = TraficJTLYM.Value
+
+   Range("P22").Select
+
+   ActiveCell = TraficJTCYTD.Value
+
+   Range("Q22").Select
+
+   ActiveCell = TraficJTLYTD.Value
+
+  
+
+   
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+End Sub
+
+ 
+
+Private Sub CommandButton2_Click()
+
+Private Sub Label1_Click()
+
+End Sub
+
+ 
+
+Private Sub DailyGASheet_Click()
+
+Sheets("Daily GA sheet").Activate
+
+        With ActiveSheet.QueryTables.Add(Connection:= _
+
+"URL;https://docs.google.com/spreadsheets/d/1lpOe3-_3OP8j0lueJWdZyWlcsJ06FrBEXddZFiMg8Ws/edit?usp=sharing#gid=0", Destination:=Range("$A$1"))
+
+.Name = "q?s=goog_2"
+
+.FieldNames = False
+
+.RowNumbers = False
+
+.FillAdjacentFormulas = False
+
+.PreserveFormatting = True
+
+.RefreshOnFileOpen = False
+
+.BackgroundQuery = True
+
+.RefreshStyle = xlInsertDeleteCells
+
+.SavePassword = False
+
+.SaveData = True
+
+.AdjustColumnWidth = False
+
+.RefreshPeriod = 0
+
+.WebSelectionType = xlSpecifiedTables
+
+.WebFormatting = xlAll
+
+.WebTables = "1,2"
+
+.WebPreFormattedTextToColumns = False
+
+.WebConsecutiveDelimitersAsOne = True
+
+.WebSingleBlockTextImport = False
+
+.WebDisableDateRecognition = False
+
+.WebDisableRedirections = False
+
+.Refresh BackgroundQuery:=False
+
+    End With
+
+End Sub
+
+ 
+
+Private Sub ExportGoogleSheet_Click()
+
+Sheets("Tab Email").Activate
+
+    Dim sWebsite As String
+
+    sWebsite = "https://docs.google.com/spreadsheets/d/1lpOe3-_3OP8j0lueJWdZyWlcsJ06FrBEXddZFiMg8Ws/edit?usp=sharing"
+
+    ActiveWorkbook.FollowHyperlink Address:=sWebsite, NewWindow:=True 'Open Website
+
+End Sub
+
+ 
+
+Private Sub Label19_Click()
+
+    Sheets("Daily GA sheet").Activate
+
+    Range("C15").Select
+
+    'trafic N-1
+
+        UsersTC.Value = ActiveCell.Value
+
+        SessionsTC.Value = ActiveCell.Offset(0, 1).Value
+
+        PViewTC.Value = ActiveCell.Offset(0, 2).Value
+
+        Range("C16").Select
+
+        UsersJT.Value = ActiveCell.Value
+
+        SessionsJT.Value = ActiveCell.Offset(0, 1).Value
+
+        PViewJT.Value = ActiveCell.Offset(0, 2).Value
+
+        'trafic TC Week/Month/Year
+
+        Range("C8").Select
+
+          TraficTCCW.Value = ActiveCell
+
+        TraficTCLW.Value = ActiveCell.Offset(0, 1).Value
+
+   TraficTCCM.Value = ActiveCell.Offset(0, 2).Value
+
+   TraficTCLYM.Value = ActiveCell.Offset(0, 3).Value
+
+   TraficTCCYTD.Value = ActiveCell.Offset(0, 4).Value
+
+   TraficTCLYTD.Value = ActiveCell.Offset(0, 5).Value
+
+   'trafic JT Week/Month/Year
+
+    Range("C9").Select
+
+          TraficJTCW.Value = ActiveCell
+
+        TraficJTLW.Value = ActiveCell.Offset(0, 1).Value
+
+   TraficJTCM.Value = ActiveCell.Offset(0, 2).Value
+
+   TraficJTLYM.Value = ActiveCell.Offset(0, 3).Value
+
+   TraficJTCYTD.Value = ActiveCell.Offset(0, 4).Value
+
+   TraficJTLYTD.Value = ActiveCell.Offset(0, 5).Value
+
+   Range("H3").Select
+
+   DateValue.Value = ActiveCell
+
+  
+
+        
+
+        
+
+   
+
+End Sub
+
+ 
+
+Private Sub SessionsJT_Change()
+
+ 
+
+End Sub
+
+ 
+
+Private Sub UserForm_Click()
+
+End Sub
+
+ 
+
+ 
+
+Private Sub Label18_Click()
+
+ 
+
+End Sub
+
+ 
+
+Private Sub Label2_Click()
+
+ 
+
+End Sub
+
+ 
+
+Private Sub Label3_Click()
+
+ 
+
+End Sub
